@@ -11,6 +11,9 @@ from termcolor import colored
 import lib.info as info
 import lib.utils as utils
 
+#Clear pycache
+utils.delPycache();
+
 #Title Screen & Character Initialization
 from lib.text.title import player
 #Start Command Prompt

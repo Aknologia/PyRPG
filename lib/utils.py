@@ -12,6 +12,12 @@ def loadPlayer():
         "name": _in[0]
     });
 
-def savePlayer(player):
-    out = open('./lib/player/save.save','w');
-    out.write(f"""{player['name']}""")
+#Delete __pycache__
+import shutil
+folders = ['./lib/cmds/__pycache__','./lib/text/__pycache__','./lib/player/__pycache__','./lib/__pycache__']
+def delPycache():
+    for folder in folders:
+        if(path.isdir(folder)):
+            try:
+                shutil.rmtree(folder);
+            except: pass

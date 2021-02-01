@@ -19,3 +19,8 @@ class Player:
     return {
       "name": self.name,
     }
+  
+  def save(self):
+    player = self.get();
+    out = open('./lib/player/save.save','w');
+    out.write(f"""{player['name']}""")
