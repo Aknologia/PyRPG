@@ -4,12 +4,13 @@ def isSaved():
         return True
     return False
 
+from .player import init
 def loadPlayer():
     _in = open('./lib/player/save.save','r').read();
     _in = _in.split('\n');
-    return {
+    return init.Player({
         "name": _in[0]
-    }
+    });
 
 def savePlayer(player):
     out = open('./lib/player/save.save','w');
