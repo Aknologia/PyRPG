@@ -12,7 +12,6 @@ import lib.info as info
 import lib.utils as utils
 
 #Title Screen
-from lib.text.title import show
-show()
-
+from lib.text.title import player
+utils.savePlayer(player.get());
 #Character Initialization
