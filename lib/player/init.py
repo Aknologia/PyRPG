@@ -1,4 +1,5 @@
 import os
+from .. import utils
 class Player:
   def __init__(self, obj=None):
     if(not obj):
@@ -23,4 +24,4 @@ class Player:
   def save(self):
     player = self.get();
     out = open('./lib/player/save.save','w');
-    out.write(f"""{player['name']}""")
+    out.write(utils.encode(f"""{player['name']}"""))

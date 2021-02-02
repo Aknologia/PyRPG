@@ -7,6 +7,7 @@ class Command:
             if not len(player['inv'])>0: raise KeyError;
         except KeyError:
             print(colored(("="*28) + ' INVENTORY '+ ("="*28), "grey", "on_white")+"\n");
-            input('test');
+            print(colored('-  Empty\n','cyan'))
+            input(colored('Press Enter to Quit.','grey'))
 
 description = 'Shows your current inventory.';

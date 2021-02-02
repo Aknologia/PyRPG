@@ -1,9 +1,11 @@
+#Import Lib
 from termcolor import colored
-message = colored("Type 'help' to see all available commands.",'cyan');
 import os
 from importlib import import_module
 from .. import utils
-
+#Constants
+message = colored("Type 'help' to see all available commands.",'cyan');
+#Main Class
 class prompt:
     def __init__(self,player):
         while True:
@@ -22,12 +24,15 @@ class prompt:
     def show(self):
         print(message);
 
+#Subclass
 class Help:
     def __init__(self,player):
         print(colored(("="*30) + ' HELP '+ ("="*30), "grey", "on_white")+"\n");
         for command in commands:
             print(colored(command,'green') + f' - \033[1;37;40m{commands[command].description}\033[0;37;40m')
         input(colored('Press Enter to Quit.','grey'))
+
+#Load Commands
 commands = {}
 try:
     for file in os.listdir('./lib/cmds/'):

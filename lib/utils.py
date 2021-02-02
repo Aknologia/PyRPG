@@ -5,8 +5,9 @@ def isSaved():
     return False
 
 from .player import init
+import base64; import json
 def loadPlayer():
-    _in = open('./lib/player/save.save','r').read();
+    _in = base64.b64decode(open('./lib/player/save.save','r').read().encode('ascii')).decode('ascii');
     _in = _in.split('\n');
     return init.Player({
         "name": _in[0]
@@ -28,3 +29,6 @@ def clear():
         subprocess.run(['cls'], check=True, shell=True)
     except subprocess.CalledProcessError:
         subprocess.run(['clear'])
+
+def encode(obj):
+    return base64.b64encode(str(obj).encode('ascii')).decode('ascii');
