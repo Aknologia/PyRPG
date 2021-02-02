@@ -21,3 +21,10 @@ def delPycache():
             try:
                 shutil.rmtree(folder);
             except: pass
+
+import subprocess
+def clear():
+    try:
+        subprocess.run(['cls'], check=True, shell=True)
+    except subprocess.CalledProcessError:
+        subprocess.run(['clear'])
