@@ -7,11 +7,8 @@ def isSaved():
 from .player import init
 import base64; import json
 def loadPlayer():
-    _in = base64.b64decode(open('./lib/player/save.save','r').read().encode('ascii')).decode('ascii');
-    _in = _in.split('\n');
-    return init.Player({
-        "name": _in[0]
-    });
+    _in = json.loads(base64.b64decode(open('./lib/player/save.save','r').read().encode('ascii')).decode('ascii'));
+    return init.Player(_in);
 
 #Delete __pycache__
 import shutil

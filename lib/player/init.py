@@ -1,5 +1,7 @@
 import os
+import json
 from .. import utils
+
 class Player:
   def __init__(self, obj=None):
     if(not obj):
@@ -10,18 +12,15 @@ class Player:
         if(len(name) > 25): input("Player Names can't be longer than 25 characters.")
         else: break
         os.system('cls');
-      
-      #Add them to self
-      self.name = name
+        file = open('lib/player/blank.json');
+      self.obj = json.load(file);
     else:
-      self.name = obj['name']
+      self.obj = obj;
   
   def get(self):
-    return {
-      "name": self.name,
-    }
+    return self.obj;
   
   def save(self):
     player = self.get();
     out = open('./lib/player/save.save','w');
-    out.write(utils.encode(f"""{player['name']}"""))
+    out.write(utils.encode(json.dumps(player)));

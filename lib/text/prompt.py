@@ -15,7 +15,8 @@ class prompt:
             print('\033[0;37;40m',end='')
             try:
                 utils.clear();
-                if(_in=="help"): Help(player);
+                if(not _in or _in.isspace()): pass
+                elif(_in=="help"): Help(player);
                 else: commands[_in].Command(player);
             except KeyError: 
                 input(colored(f"Unknown Command '{_in}'.",'red'))
@@ -34,9 +35,7 @@ class Help:
 
 #Load Commands
 commands = {}
-try:
-    for file in os.listdir('./lib/cmds/'):
-        name = file.replace('.py','');
-        mod = import_module(f'lib.cmds.{name}')
-        commands[name] = mod
-except: pass
+for file in os.listdir('./lib/cmds/'):
+    name = file.replace('.py','');
+    mod = import_module(f'lib.cmds.{name}')
+    commands[name] = mod

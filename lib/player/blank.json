@@ -1,0 +1,35 @@
+{
+    "name": "DEFAULT",
+    "level": 1,
+    "xp": {
+        "current": 0,
+        "required": 200
+    },
+    "health": {
+        "current": 100,
+        "max": 100
+    },
+    "gold": 0,
+    "stats": {
+        "str": {
+            "name": "Strength",
+            "desc": "Increases your Damages.",
+            "value": 0
+        },
+        "agi": {
+            "name": "Agility",
+            "desc": "Increases Armor Penetration.",
+            "value": 0
+        },
+        "res": {
+            "name": "Resistance",
+            "desc": "Increases your defense against attacks.",
+            "value": 0
+        },
+        "dex": {
+            "name": "Dexterity",
+            "desc": "Reduces your chances of missing.",
+            "value": 0
+        }
+    }
+}
