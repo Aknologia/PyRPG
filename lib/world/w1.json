@@ -1,0 +1,35 @@
+{
+    "world" : 1,
+    "city" : {
+
+        "lorem ipsum" : {
+            "mob" : {
+                "merchant" : {
+                  "health" : 1000,
+                  "str" : 1000,
+                  "agi" : 1000,
+                  "dex" : 1000,
+                  "res" : 1000,
+                  "xp" : 1000,
+                  "gold" : 500
+
+                },
+            },
+        },
+
+        "Forest" : {
+            "mob" : {
+                "wolf" : {
+                  "hp" : 75,
+                  "str": 2,
+                  "dex":1,
+                  "agi": 2,
+                  "res": 1,
+                  "xp" : 25,
+                  "gold":5
+                }
+            }
+        }
+    }
+
+}

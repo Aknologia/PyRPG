@@ -4,22 +4,30 @@ import os
 from importlib import import_module
 from .. import utils
 #Constants
-message = colored("Type 'help' to see all available commands.",'cyan');
+message = "Type 'help' to see all available commands.";
+
+wasShown = False;
 #Main Class
 class prompt:
     def __init__(self,player):
+        global wasShown;
         while True:
-            utils.clear()
-            self.show();
-            _in = input(colored('>>> ','grey')+'\033[1;37;40m');
-            print('\033[0;37;40m',end='')
+            if not wasShown:
+              utils.clear()
+              self.show();
+            _in = input('>>> ');
             try:
-                utils.clear();
-                if(not _in or _in.isspace()): pass
-                elif(_in=="help"): Help(player);
-                else: commands[_in].Command(player);
+                if(not _in or _in.isspace()): wasShown = True;
+                elif(_in=="help"):
+                  utils.clear();
+                  Help(player); 
+                  wasShown = False;
+                else:
+                  utils.clear();
+                  commands[_in].Command(player);
+                  wasShown = False;
             except KeyError: 
-                input(colored(f"Unknown Command '{_in}'.",'red'))
+                input(f"\033[31mUnknown Command '{_in}'.\033[0m")
 
     
     def show(self):
@@ -28,10 +36,10 @@ class prompt:
 #Subclass
 class Help:
     def __init__(self,player):
-        print(colored(("="*30) + ' HELP '+ ("="*30), "grey", "on_white")+"\n");
+        print(("="*30) + ' HELP '+ ("="*30) + "\n");
         for command in commands:
-            print(colored(command,'green') + f' - \033[1;37;40m{commands[command].description}\033[0;37;40m')
-        input(colored('Press Enter to Quit.','grey'))
+            print(command + f' - {commands[command].description}')
+        input('\nPress Enter to Quit.')
 
 #Load Commands
 commands = {}

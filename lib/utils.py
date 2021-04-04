@@ -1,4 +1,4 @@
-from os import path
+from os import path, get_terminal_size
 def isSaved():
     if path.exists('./lib/player/save.save') and not open('./lib/player/save.save','r').read().isspace():
         return True
@@ -20,12 +20,10 @@ def delPycache():
                 shutil.rmtree(folder);
             except: pass
 
-import subprocess
 def clear():
-    try:
-        subprocess.run(['cls'], check=True, shell=True)
-    except subprocess.CalledProcessError:
-        subprocess.run(['clear'])
+  size = get_terminal_size();
+  print(size.lines*"\n", end="");
+    
 
 def encode(obj):
     return base64.b64encode(str(obj).encode('ascii')).decode('ascii');

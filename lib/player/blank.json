@@ -9,6 +9,7 @@
         "current": 100,
         "max": 100
     },
+    "location": 0,
     "gold": 0,
     "stats": {
         "str": {

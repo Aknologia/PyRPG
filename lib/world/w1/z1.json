@@ -1,0 +1,29 @@
+{
+  "name": "Swamps of the Starting Village",
+  "mobs": [
+    {
+      "name": "Rat",
+      "level": [1,5],
+      "bonus": [
+        {
+          "type": "def",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Treant",
+      "level": [3,6],
+      "bonus": [
+        {
+          "type": "def",
+          "value": 8
+        },
+        {
+          "type": "atk",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}
